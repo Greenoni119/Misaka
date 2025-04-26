@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misaka Sushi | Authentic Japanese Cuisine in Brentwood, CA</title>
+  <meta name="description" content="Experience authentic Japanese cuisine including sushi and ramen at Misaka Sushi in Brentwood, CA. Friendly service in a warm, welcoming atmosphere." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #990011;
+      --primary-hover: #800010;
+      --background: #080808;
+      --surface: #111111;
+      --surface-hover: #161616;
+      --surface-light: #181818;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-color: #f8f8f8;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-tertiary: rgba(255, 255, 255, 0.5);
+      --accent: #BF9D5E;
+      --accent-hover: #d4b375;
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      --btn-shadow: 0 7px 14px rgba(0, 0, 0, 0.25);
+      --transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    header {
+      background-color: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
+      transition: all var(--transition);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    
+    header.scrolled {
+      padding: 1rem 2rem;
+      background-color: rgba(8, 8, 8, 0.95);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      max-width: 140px;
+      height: auto;
+      filter: brightness(1.1) contrast(1.2);
+      transition: all var(--transition);
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2) contrast(1.2);
+    }
+    
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--text-color);
+      min-height: 44px;
+      min-width: 44px;
+      z-index: 1100;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 0;
+      display: inline-block;
+      position: relative;
+      transition: all var(--transition);
+      opacity: 0.85;
+    }
+    
+    nav a:hover {
+      opacity: 1;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: right center;
+    }
+    
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+    
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      z-index: 1001;
+      transition: top var(--transition);
+      font-weight: 500;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+      width: auto;
+      height: auto;
+    }
+    
+    main {
+      padding-top: 0;
+    }
+    
+    section {
+      position: relative;
+      margin-bottom: 0;
+      padding: 7rem 0;
+    }
+    
+    section:nth-child(odd) {
+      background-color: var(--surface);
+    }
+    
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    h1, h2, h3, h4 {
+      color: var(--text-color);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    h1 {
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 1.25rem;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      color: var(--text-secondary);
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    
+    a:hover {
+      color: var(--accent-hover);
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      padding: 1rem 2.5rem;
+      border-radius: 0;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-width: 180px;
+      text-transform: uppercase;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: transparent;
+      z-index: -1;
+      transition: all var(--transition);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: var(--btn-shadow);
+    }
+    
+    .btn-primary::before {
+      background-color: var(--primary-hover);
+      transform: translateY(100%);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-primary:hover::before {
+      transform: translateY(0);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+    }
+    
+    .btn-outline::before {
+      background-color: rgba(255, 255, 255, 0.05);
+      transform: translateY(100%);
+    }
+    
+    .btn-outline:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-5px);
+      box-shadow: var(--btn-shadow);
+    }
+    
+    .btn-outline:hover::before {
+      transform: translateY(0);
+    }
+    
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .btn-icon .icon {
+      transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-icon:hover .icon {
+      transform: translateX(4px);
+    }
+    
+    /* Hero section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: #000;
+      padding: 0;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to top, var(--background), transparent);
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    .hero-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      filter: contrast(1.1) saturate(1.1) brightness(0.6);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+      z-index: 2;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin-left: 2rem;
+    }
+    
+    .hero-tagline {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .hero-title {
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .hero-title span {
+      display: block;
+    }
+    
+    .hero-title .accent {
+      color: var(--accent);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      max-width: 650px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    
+    .section-subheading {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    /* Features section */
+    .features-section {
+      background-color: var(--background);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    
+    .feature-card {
+      background-color: var(--surface);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+    
+    .feature-card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 20%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      color: white;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .feature-icon::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background-color: var(--surface);
+      border-radius: 18%;
+      z-index: -1;
+    }
+    
+    .feature-icon span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      transform: scale(1.2);
+    }
+    
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      position: relative;
+    }
+    
+    .feature-desc {
+      color: var(--text-tertiary);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    .feature-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      gap: 0.5rem;
+      transition: all var(--transition);
+    }
+    
+    .feature-link:hover {
+      color: var(--accent-hover);
+    }
+    
+    .feature-link .icon {
+      transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-link:hover .icon {
+      transform: translateX(4px);
+    }
+    
+    /* Menu section */
+    .menu-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    
+    .menu-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    
+    .menu-text {
+      max-width: 600px;
+    }
+    
+    .menu-image-container {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    
+    .menu-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .menu-image-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .menu-image-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    /* Testimonials section */
+    .testimonials-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--surface);
+      padding: 2.5rem;
+      border-radius: 0.5rem;
+      position: relative;
+      transition: all var(--transition);
+      border: 1px solid var(--border-color);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+      border-radius: 0.5rem;
+      pointer-events: none;
+    }
+    
+    .testimonial-card:hover::before {
+      opacity: 1;
+    }
+    
+    .testimonial-quote {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-quote::before {
+      content: "\201C";
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.1;
+      font-family: Georgia, serif;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .author-name {
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .author-title {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    /* Contact section */
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    
+    .contact-card {
+      background-color: var(--surface);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+      transition: all var(--transition);
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .contact-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .contact-card-title {
+      font-size: 1.25rem;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    
+    .address {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    .hours-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-secondary);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    
+    .hours-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .day {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .map-container {
+      position: relative;
+      height: 100%;
+      min-height: 500px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .map-placeholder {
+      position: absolute;
+      inset: 0;
+      background-color: var(--surface-light);
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=380+W+Country+Club+Dr+STE+J,Brentwood,CA&zoom=15&size=800x600&scale=2&key=YOUR_API_KEY');
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(0.8) contrast(0.9);
+    }
+    
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--surface);
+      color: var(--text-tertiary);
+      padding: 5rem 0 2rem;
+      position: relative;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    
+    .footer-content {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    
+    .footer-about {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-logo {
+      max-width: 140px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-desc {
+      color: var(--text-tertiary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 400px;
+    }
+    
+    .footer-heading {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+    }
+    
+    .footer-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .footer-nav a {
+      color: var(--text-tertiary);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      display: inline-block;
+      position: relative;
+      padding-left: 0;
+    }
+    
+    .footer-nav a:hover {
+      color: var(--text-color);
+      transform: translateX(5px);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--surface-light);
+      color: var(--text-color);
+      transition: all var(--transition);
+      border: 1px solid var(--border-color);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
+      border-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      
+      .menu-content {
+        gap: 3rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      section {
+        padding: 5rem 0;
+      }
+      
+      .hero {
+        height: auto;
+        min-height: 80vh;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+      
+      .menu-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .menu-image-container {
+        aspect-ratio: 16/9;
+        order: -1;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .map-container {
+        min-height: 400px;
+      }
+      
+      .contact-info {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background-color: var(--surface);
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+        transition: right var(--transition);
+        gap: 1.5rem;
+        z-index: 1000;
+      }
+      
+      nav ul.show {
+        right: 0;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+      
+      nav a {
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 0.5rem 0;
+        opacity: 1;
+      }
+      
+      nav a::after {
+        transform: scaleX(1);
+        transform-origin: left center;
+        opacity: 0.3;
+      }
+      
+      nav a:hover::after {
+        opacity: 1;
+      }
+      
+      .features-grid, 
+      .testimonials-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .hero-content {
+        padding: 0 1.5rem;
+        margin-left: 0;
+        text-align: center;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .section-heading {
+        text-align: center;
+      }
+      
+      .feature-card {
+        padding: 1.5rem;
+      }
+      
+      .testimonial-card {
+        padding: 1.5rem;
+      }
+      
+      .hours-item {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+    
+    /* Dark overlay for mobile menu */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+      backdrop-filter: blur(5px);
+    }
+    
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .fade-up-delay-1 {
+      transition-delay: 200ms;
+    }
+    
+    .fade-up-delay-2 {
+      transition-delay: 400ms;
+    }
+    
+    .fade-up-delay-3 {
+      transition-delay: 600ms;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="overlay" id="overlay"></div>
+  
+  <header role="banner" id="header">
+    <div class="header-container">
+      <a href="#" class="logo-link">
+        <img src="images/logo.png" alt="Misaka Sushi restaurant logo" width="140" height="56" class="logo" />
+      </a>
+      
+      <nav role="navigation" aria-label="Main menu">
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 5.75H19.25"></path>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 18.25H19.25"></path>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 12H19.25"></path>
+          </svg>
+        </button>
+        
+        <ul id="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="Menu.html">Menu</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="main" role="main">
+    <section class="hero" id="home">
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2400&auto=format&fit=crop" alt="Elegant sushi assortment presented on a dark stone plate" class="hero-image">
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="container">
+        <div class="hero-content fade-up">
+          <span class="hero-tagline fade-up fade-up-delay-1">Authentic Japanese Cuisine</span>
+          <h1 class="hero-title fade-up fade-up-delay-2">
+            <span>Experience the Art of</span> 
+            <span class="accent">Japanese Dining</span>
+          </h1>
+          <p class="hero-subtitle fade-up fade-up-delay-3">Discover traditional flavors crafted with passion, precision, and the finest ingredients at Misaka Sushi in Brentwood.</p>
+          
+          <div class="hero-btns fade-up fade-up-delay-3">
+            <a href="Menu.html" class="btn btn-primary btn-icon">
+              View Our Menu
+              <svg class="icon" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
+              </svg>
+            </a>
+            
+            <a href="#contact" class="btn btn-outline">
+              Make a Reservation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features-section" id="about">
+      <div class="container">
+        <div class="section-heading fade-up">
+          <span class="section-subheading">The Misaka Experience</span>
+          <h2>Culinary Excellence & Tradition</h2>
+          <p>Celebrate everyday dining in our exquisite atmosphere where traditional Japanese techniques meet contemporary culinary artistry. Our master chefs transform the finest ingredients into extraordinary dishes that delight the senses.</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card fade-up">
+            <div class="feature-icon">
+              <span>🍣</span>
+            </div>
+            <h3 class="feature-title">Premium Ingredients</h3>
+            <p class="feature-desc">We source the freshest fish and highest quality ingredients to create authentic Japanese flavors that delight the senses.</p>
+            <a href="Menu.html" class="feature-link">
+              Explore Menu
+              <svg class="icon" width="16" height="16" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="feature-card fade-up fade-up-delay-1">
+            <div class="feature-icon">
+              <span>🍜</span>
+            </div>
+            <h3 class="feature-title">Artisanal Ramen</h3>
+            <p class="feature-desc">Our signature ramen broths are simmered for hours to achieve the perfect depth of flavor, creating a truly unforgettable dining experience.</p>
+            <a href="Menu.html#ramen-section" class="feature-link">
+              See Ramen Selection
+              <svg class="icon" width="16" height="16" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="feature-card fade-up fade-up-delay-2">
+            <div class="feature-icon">
+              <span>🍶</span>
+            </div>
+            <h3 class="feature-title">Curated Sake & Spirits</h3>
+            <p class="feature-desc">Enhance your meal with our carefully selected collection of sake, Japanese whisky, and craft cocktails designed to complement our cuisine.</p>
+            <a href="Menu.html#alcoholic-drinks-section" class="feature-link">
+              View Drinks
+              <svg class="icon" width="16" height="16" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="menu-section">
+      <div class="container">
+        <div class="menu-content">
+          <div class="menu-text fade-up">
+            <span class="section-subheading">Our Culinary Artistry</span>
+            <h2>Expertly Crafted Dishes</h2>
+            <p>Misaka Sushi offers a vibrant array of Japanese favorites—from delicate sashimi and handcrafted nigiri to savory ramen bowls and crispy tempura. Our specialty rolls like the Cherry Blossom Roll and Godzilla Roll showcase our chefs' creativity and mastery of traditional techniques.</p>
+            <p>Every dish is thoughtfully prepared using premium ingredients and presented with artistic precision that honors Japanese culinary traditions while embracing contemporary innovation.</p>
+            <a href="Menu.html" class="btn btn-primary btn-icon">
+              Explore Full Menu
+              <svg class="icon" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H4.75"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="menu-image-container fade-up fade-up-delay-1">
+            <img src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?q=90&w=2070&auto=format&fit=crop" alt="Beautifully arranged sushi selection on dark plate" class="menu-image" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-heading fade-up">
+          <span class="section-subheading">Guest Experiences</span>
+          <h2>What Our Guests Are Saying</h2>
+          <p>The thoughtful preparation and exceptional service at Misaka Sushi have earned us the praise of our valued guests. Here's what they have to say about their dining experiences.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card fade-up">
+            <p class="testimonial-quote">"Our server was attentive and up front about the menu. I would highly recommend Misaka Sushi; it's the best ramen eatery in Brentwood! The depth of flavor in their tonkotsu broth is unmatched."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <span class="author-name">Wesley W.</span>
+                <span class="author-title">Regular Guest</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card fade-up fade-up-delay-1">
+            <p class="testimonial-quote">"This was my third time in a week! I love the sushi and ramen. The soon-to-be full bar is beautiful. Warm, hip, friendly staff — great service! Each visit has been consistently excellent."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <span class="author-name">Anthony P.</span>
+                <span class="author-title">Local Food Enthusiast</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading fade-up">
+          <span class="section-subheading">Visit Us</span>
+          <h2>Come Experience Misaka</h2>
+          <p>We look forward to welcoming you to Misaka Sushi for an unforgettable dining experience. Whether you're joining us for lunch or dinner, our team is committed to providing exceptional service and authentic Japanese cuisine.</p>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info fade-up">
+            <div class="contact-card">
+              <div class="contact-card-header">
+                <div class="contact-card-icon">
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 13V15"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7V9"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 4.5C17 5.88071 14.7614 7 12 7C9.23858 7 7 5.88071 7 4.5C7 3.11929 9.23858 2 12 2C14.7614 2 17 3.11929 17 4.5Z"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9.5C17 10.8807 14.7614 12 12 12C9.23858 12 7 10.8807 7 9.5"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 14.5C17 15.8807 14.7614 17 12 17C9.23858 17 7 15.8807 7 14.5"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 4.5V19.5C17 20.8807 14.7614 22 12 22C9.23858 22 7 20.8807 7 19.5V4.5"></path>
+                  </svg>
+                </div>
+                <h3 class="contact-card-title">Our Location</h3>
+              </div>
+              <address class="address">
+                380 W Country Club Dr STE J<br>
+                Brentwood, California<br>
+                <a href="tel:+19256794890">(925) 679-4890</a>
+              </address>
+            </div>
+            
+            <div class="contact-card fade-up fade-up-delay-1">
+              <div class="contact-card-header">
+                <div class="contact-card-icon">
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8V12L14 14"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"></path>
+                  </svg>
+                </div>
+                <h3 class="contact-card-title">Hours of Operation</h3>
+              </div>
+              <ul class="hours-list">
+                <li class="hours-item">
+                  <span class="day">Monday</span>
+                  <span class="time">11:30am–2:30pm / 4:00pm–9:00pm</span>
+                </li>
+                <li class="hours-item">
+                  <span class="day">Tuesday</span>
+                  <span class="time">Closed</span>
+                </li>
+                <li class="hours-item">
+                  <span class="day">Wednesday - Thursday</span>
+                  <span class="time">11:30am–2:30pm / 4:00pm–9:00pm</span>
+                </li>
+                <li class="hours-item">
+                  <span class="day">Friday</span>
+                  <span class="time">11:30am–2:30pm / 4:00pm–9:00pm</span>
+                </li>
+                <li class="hours-item">
+                  <span class="day">Saturday</span>
+                  <span class="time">11:30am–9:00pm</span>
+                </li>
+                <li class="hours-item">
+                  <span class="day">Sunday</span>
+                  <span class="time">11:30am–8:00pm</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="map-container fade-up fade-up-delay-2">
+            <div class="map-placeholder"></div>
+            <div class="map-overlay">
+              <a href="https://maps.google.com/?q=380+W+Country+Club+Dr+STE+J,+Brentwood,+CA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <img src="images/misaka-logo.png" alt="Misaka Sushi logo" class="footer-logo" width="140" height="56">
+          <p class="footer-desc">Experience authentic Japanese cuisine including sushi and ramen at Misaka Sushi in Brentwood, CA. Friendly service in a warm, welcoming atmosphere.</p>
+          
+          <div class="social-links">
+            <a href="https://www.facebook.com/misakasushi" aria-label="Misaka on Facebook" class="social-link">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"></path>
+              </svg>
+            </a>
+            
+            <a href="https://www.instagram.com/misakasushi" aria-label="Misaka on Instagram" class="social-link">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 2H7.5C4.46243 2 2 4.46243 2 7.5V16.5C2 19.5376 4.46243 22 7.5 22H16.5C19.5376 22 22 19.5376 22 16.5V7.5C22 4.46243 19.5376 2 16.5 2Z"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.5 6.5C17.5 7.05228 17.0523 7.5 16.5 7.5C15.9477 7.5 15.5 7.05228 15.5 6.5C15.5 5.94772 15.9477 5.5 16.5 5.5C17.0523 5.5 17.5 5.94772 17.5 6.5Z"></path>
+              </svg>
+            </a>
+            
+            <a href="https://www.yelp.com/biz/misaka-sushi-brentwood" aria-label="Misaka on Yelp" class="social-link">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 8.5L19.5 12.5C20 13 20 13.5 19.5 14L16.5 15.5C16 16 15 16 14.5 15.5L13 9.5C12.5 9 13 8 13.5 7.5L15.5 7C16 6.5 16 7 16.5 8.5Z"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.2 16.3L20 18.1C20.5 18.4 20.6 18.8 20.2 19.4L18.1 21.7C17.7 22.3 16.7 22.5 16.1 22.1L10.4 17.3C10 16.9 9.9 16 10.3 15.5L11.7 14.4C12.1 13.9 12.7 14 13.1 14.4L16.2 16.3Z"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.5 5.3L7.4 3.3C7.8 3 8.3 3.1 8.6 3.5L10.9 8.9C11.2 9.3 11 10.3 10.6 10.6L8.6 11.4C8.2 11.7 7.8 11.6 7.5 11.2L3.2 6.5C2.9 6.1 3.1 5.6 3.5 5.3Z"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.5 13.7L7.5 17.7C7.2 18.1 7 18.5 7.4 18.9L10.1 21.3C10.5 21.7 11 21.8 11.4 21.4L13.4 14.6C13.8 14.2 13.6 13.3 13.1 12.9L12 12.8C11.5 12.4 9.8 13.4 9.5 13.7Z"></path>
+              </svg>
+            </a>
+            
+            <a href="https://g.page/misakasushi" aria-label="Misaka on Google" class="social-link">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 12V12.01"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.5 8.5V8.51"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.5 8.5V8.51"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19C16.4183 19 20 15.4183 20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11C4 12.2555 4.26924 13.4501 4.75 14.5251L4 21L10.4749 20.25C11.5499 20.7308 12.7445 21 14 21"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-nav">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-nav">
+          <h4 class="footer-heading">Our Menu</h4>
+          <ul>
+            <li><a href="Menu.html#appetizers-section">Appetizers</a></li>
+            <li><a href="Menu.html#nigiri-section">Nigiri & Sashimi</a></li>
+            <li><a href="Menu.html#sushi-rolls-raw-section">Sushi Rolls</a></li>
+            <li><a href="Menu.html#ramen-section">Ramen</a></li>
+            <li><a href="Menu.html#alcoholic-drinks-section">Drinks</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p> 2025 Misaka Sushi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('#nav-menu');
+    const overlay = document.querySelector('#overlay');
+    
+    hamburger.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      navMenu.classList.toggle('show');
+      overlay.classList.toggle('show');
+      this.setAttribute('aria-expanded', !isExpanded);
+      document.body.style.overflow = !isExpanded ? 'hidden' : '';
+    });
+    
+    overlay.addEventListener('click', function() {
+      navMenu.classList.remove('show');
+      overlay.classList.remove('show');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+    
+    // Close menu when a link is clicked
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('show');
+        overlay.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.querySelector('#header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Fade-in animations on scroll
+    const fadeElements = document.querySelectorAll('.fade-up');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          fadeInObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    });
+    
+    fadeElements.forEach(element => {
+      fadeInObserver.observe(element);
+    });
+    
+    // Activate hero animations on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hero .fade-up').forEach(el => {
+        el.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
