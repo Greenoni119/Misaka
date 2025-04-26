@@ -1,0 +1,9 @@
+{
+  "name": "misakasushi",
+  "version": "1.0.0",
+  "description": "Misaka Sushi Restaurant Website",
+  "private": true,
+  "scripts": {
+    "start": "serve"
+  }
+}
